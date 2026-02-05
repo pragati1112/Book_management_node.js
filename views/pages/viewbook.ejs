@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>View Books</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="card container">
+  <h2>All Books</h2>
+
+<ul>
+  <% books.forEach(book => { %>
+    <li>
+      <span><%= book.title %></span>
+
+      <!-- Edit button -->
+      <a href="/edit/<%= book._id %>"class="edit-btn">Edit</a> 
+      
+      <form action="/delete/<%= book._id %>" method="GET" style="display:inline;">
+        <button type="submit" class="remove-btn">Remove</button>
+      </form>
+    </li>
+  <% }) %>
+</ul>
+
+
+  <a href="/">Add New Book</a>
+</div>
+
+</body>
+</html>
